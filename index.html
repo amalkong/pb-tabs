@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Language" content="en-ja" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+    	<meta charset="utf-8" />
+		<meta name="robots" content="index, follow" />
+		<title>PBD jQuery Tabs</title>
+		<meta name="title" content="PBD jQuery Tabs" />
+		<meta name="author" content="Amalkong" />
+		<meta name="keywords" content="jQuery,PBD,tabs" />
+		<meta name="copyright" content="PBD © 2016" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/jquery-pbdTabs.css" />
+		<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.pbdTabs.1.0.js"></script>
+	    <script type="text/javascript">
+		    initTime = (new Date()).getTime();
+			
+			function pageloadingtime(){
+		        postTime = (new Date()).getTime();
+				seconds = (postTime-initTime)/1000;
+				document.getElementById("loadTime").innerHTML = "<strong><font color=\"#FFCC00\">(Your Page took " + seconds + " second(s) to load.)</font></strong>";
+			}
+			
+			$(document).ready(function(){
+		        $(".tabs").pbdTabs({
+				    orientation : 'h', //v,vertical,h,horizontal | renders the tab buttons above or beside the tab panel
+		            orientation_btn : '#orientation_btn', // the button which can be used to toggle tab buttons orientation
+		            event : 'click', // click,hover | 
+		            show_tab_index : 1, // determine which tab panel to show and tab button to highlight on page load
+		            height : 240, // set the height of all "tabs-panel",
+		            effect : 'fadein', // fadein,show
+		            effect_time : 3000, // 
+	            });
+	        });
+			
+		    window.onload = pageloadingtime;
+		</script>
+    </head>
+    <body>
+        <div id="container">
+            <h1>PBD jQuery Tabs<div class="icon-wrapper right-1"><a class="ajax-btn" href="./index.html"><i class="ui-icon ui-icon-home">&nbsp;</i></a></div><div class="clear"></div></h1>
+            <div id="body">
+                <div class="widget">
+				    <div class="widget-title">Tabs<div class="icon-wrapper right-1"><a id="orientation_btn" href="#tabs" title="Toggle tab orientation"><i class="ui-icon ui-icon-arrowthick-2-n-s">&nbsp;</i></a></div><div class="clear"></div></div>
+				    <div class="spacer"></div>
+					<div class="tabs horizontal">
+			            <ul class="tabs-nav"> 
+							<li class="tab-icon"><a href="#column-1"><i class="ui-icon ui-icon-info"></i></a></li>
+							<li class="tab-icon"><a href="#column-2"><i class="ui-icon ui-icon-cog"></i></a></li>
+							<li class="tab-icon"><a href="#column-3"><i class="ui-icon ui-icon-link"></i></a></li>
+							<li class="tab-icon"><a href="README.txt" data-target-id="#column-10" title="this link loads the url set in the href attribute"><i class="ui-icon ui-icon-globe"></i></a></li>
+							<li class="tab-icon"><a href="http://localhost/projects/__TRASH__/index.php/welcome" data-target-id="#column-10" title="this link loads the url set in the href attribute"><i class="ui-icon ui-icon-http"></i></a></li>
+						</ul>
+						
+						<div id="column-1" class="tabs-panel">
+						    <div class="tabs-panel-title">Info</div>
+							Quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea **commodo** consequat. Duis *aute **irure dolor** in* reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint **occaecat cupidatat** non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo ~~inventore~~ inventari veritatis et quasi ***architecto beatae vitae dicta*** sunt, explicabo.
+						</div>
+						
+						<div id="column-2" class="tabs-panel">
+							<div class="tabs-panel-title">Settings</div>
+							<ul class="settings" >
+								<li><span class="selector">orientation</span> : <span class="value">'vertical'</span>, <span class="comment">//vertical,horizontal | renders the tab buttons above or beside the tab panel</span></li>
+								<li><span class="selector">orientation_btn</span> : <span class="value">'#orientation_btn'</span>, <span class="comment">// the button which can be used to toggle tab buttons orientation</span></li>
+								<li><span class="selector">event</span> : <span class="value">'click'</span>, <span class="comment">// click,hover | </span></li>
+								<li><span class="selector">show_tab_index</span> : <span class="value">0</span>, <span class="comment">// determine which tab panel to show and tab button to highlight on page load</span></li>
+								<li><span class="selector">height</span> : <span class="value">'400px'</span>, <span class="comment">// set the height of all "tabs-panel"</span></li>
+								<li></li>
+							</ul>
+						</div>
+						
+						<div id="column-3" class="tabs-panel">
+							<div class="tabs-panel-title">Links</div>
+							<ul>
+								<li class="menu-item"><a href="http://www.facebook.com/projectblu-media">http://www.facebook.com/projectblu-media</a></li>
+								<li class="menu-item"><a href="http://www.twitter.com/UKT_PBD" title="">http://www.twitter.com/UKT_PBD</a></li>
+							</ul>
+						</div>
+						
+						<div id="column-10" class="tabs-panel">
+							ajax content will be dynamically loaded here
+						</div>
+					</div>
+					<div class="clear"></div>  
+				</div>
+			    <div class="clear"></div>
+            </div>
+		    <footer>
+		        <p class="footer"><div id="loadTime"></div></p>
+            </footer>
+        </div>	
+    </body>	
+</html>	
